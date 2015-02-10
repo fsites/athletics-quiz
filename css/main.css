@@ -1,4 +1,24 @@
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+
 /*HEADER with LOGO and TITLE*/
+.main-content {
+	min-height: 100%;
+	margin-bottom: -70px;
+}
+
+.main-content:after {
+	content: "";
+	display: block;
+	height: 70px;
+}
+
 .header, .content {
 	max-width: 500px;
 	max-height: 300px;
