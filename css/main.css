@@ -1,4 +1,8 @@
 /*HEADER with LOGO and TITLE*/
+body {
+	height: 100%;
+	font-family: 'Josefin Slab', sans-serif;
+}
 .header, .content {
 	max-width: 500px;
 	max-height: 300px;
@@ -76,6 +80,17 @@ button:focus, #submitbutton:focus {
 	width: 400px;
 	font-size: 1.3em;
 	font-weight: 600;
+	text-align: center;
+	margin: 10px auto;
+}
+
+#current-numbers {
+	font-size: 1em;
+}
+
+#percent-display {
+	font-size: 5.5em;
+	color: #00483a;
 	text-align: center;
 	margin: 10px auto;
 }

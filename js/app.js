@@ -27,16 +27,19 @@ var questions = [
 var questionNum = 0
 var numberCorrect = 0
 
-/*HIDES QUESTIONS on PAGE LOAD*/
+/*HIDES QUESTIONS and PERCENT on PAGE LOAD*/
 $('.content').hide();
+$('#percent-display').hide();
+
 
 /*HIDES BEGIN BUTTON ON CLICK, SHOWS FIRST QUESTION*/
 $('#begin-button').click(function(){
 	$('#begin').hide();
-	$('.content').show();
+	$('.content').fadeIn(700);
 	$('#feedback').text("Select an Answer and press Submit");
 	question();
 })
+
 
 /*HELPER FUNCTION - LOADS QUESTION and ANSWERS*/
 function question() {
@@ -62,12 +65,20 @@ function removeAnswers() {
 
 /*HELPER FUNCTION - ENDS QUIZ and DISPLAYS RESULTS*/
 function quizEnd() {
-		$('.question').hide()
-		$('.answerform').hide()
+		$('.question').hide(1000);
+		$('.answerform').hide(1000);
+		$('#current-numbers').hide(1000);
 		$('#feedback').text("You got " 				
 			+ numberCorrect 
-			+ " out of " + questions.length + " correct")
+			+ " out of " + questions.length + " correct or");
+		$('#percent-display').fadeIn(1500).text((numberCorrect/questions.length) * 100 + '%');
 }
+
+/*HELPER FUNCTION - DISPLAYS NUMBER CORRECT and TOTAL QUESTIONS*/
+function currentNumbers(){
+	$('#current-numbers').text("#" + questionNum + "/" + questions.length +
+		" | Correct " + numberCorrect + "/" + questionNum);
+};
 		
 /*SUBMIT CLICKED FUNCTION*/
 $('#submitbutton').click(function() {
@@ -82,12 +93,14 @@ $('#submitbutton').click(function() {
 			removeAnswers()
 			questionNum++
 			numberCorrect++
+			currentNumbers()
 			question()	
 		}
 		else {
-			$('#feedback').text("Wrong Answer")
+			$('#feedback').text("Nope, the correct answer is " + questions[questionNum].answers[correctAnswer])
 			removeAnswers()
 			questionNum++
+			currentNumbers()
 			question()
 		};
 	console.log('submit clicked')
@@ -95,18 +108,18 @@ $('#submitbutton').click(function() {
 	return false;
 })
 
-
 });
+
 
 /*THIGNS TO ADD
 More questions (100)
+Option to choose quiz length (10, 20, 50, 75, 100 questions)
 Restart button
 Make scalable for mobile
-Display current score
-Tweak css
-Score as percentage
-Display number of questions remaining
-Display correct answers if answered wrong
+Score as percentage at the end
+Display number of questions remaining and current score > done but ugly make helper function
+Make fade/animate transitions between questions
+Sticky footer
 */
 
 
