@@ -137,6 +137,10 @@ button:focus, #submitbutton:focus {
 	margin-right: 3px;
 }
 
+#percent-display {
+	font-family: 'Cabin Sketch';
+}
+
 
 
 /*FOOTER*/
