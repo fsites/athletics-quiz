@@ -20,7 +20,67 @@ var questions = [
 
 	{question: "Which former A's player holds the record for most stolen bases in MLB history?",
 	answers: ["Reggie Jackson", "Mo Vaughn", "Willie McCovey", "Rickey Henderson"],
-	correct: 3}
+	correct: 3},
+
+	{question: "Which city has not been home for the A's franchise?",
+	answers: ["Oakland", "Kansas City", "Brooklyn", "Philadelphia"],
+	correct: 2},
+
+	{question: "The A's won how many games during their historic winning streak in 2002?",
+	answers: ["19", "20", "21", "22"],
+	correct: 1},
+
+	{question: "Which player does not have thier number retired with the A's?",
+	answers: ["Reggie Jackson", "Vida Blue", "Rickey Henderson", "Dennis Eckersley"],
+	correct: 1},
+
+	{question: "In what year did the A's have their highest winning percentage over a 162 game season?",
+	answers: ["1988", "2002", "1990", "2001"],
+	correct: 0},
+
+	{question: "The A's current spring training facility, Hohokam Stadium, is located in what Arizona city?",
+	answers: ["Phoenix", "Scottsdale", "Tempe", "Mesa"],
+	correct: 3},
+
+	{question: "The A's former spring training facility is located in what Arizona city?",
+	answers: ["Phoenix", "Scottsdale", "Tempe", "Mesa"],
+	correct: 0},
+
+	{question: "What 2 franchises have the closest active MLB stadiums?",
+	answers: ["A's and Giants", "Yankees and Mets", "Angels and Dodgers", "Cubs and White Sox"],
+	correct: 1},
+
+	{question: "When did the A's first play in the Oakland Coliseum?",
+	answers: ["1966", "1967", "1968", "1969"],
+	correct: 2},
+
+	{question: "When did the Oakland Coliseum open?",
+	answers: ["1966", "1967", "1968", "1969"],
+	correct: 0},
+
+	{question: "How much does it cost to convert the Coliseum from baseball to football each time?",
+	answers: ["$90,000", "$150,000", "$250,000", "$300,000"],
+	correct: 2},
+
+	{question: "Who holds the franchise record for most home runs in a single season?",
+	answers: ["Reggie Jackson", "Mark McGwire", "Jimmie Foxx", "Jose Conseco"],
+	correct: 2},
+
+	{question: "Rickey Henderson stole 130 bases in 1982, but was caught how many times in the same year?",
+	answers: ["20", "42", "51", "35"],
+	correct: 1},
+
+	{question: "In what year did Dennis Eckersley set the franchise record with 51 saves in a season?",
+	answers: ["1988", "1990", "1991", "1992"],
+	correct: 3},
+
+	{question: "Who has the best winning percentage as an A's manager?",
+	answers: ["Dick WIlliams", "Bob Melvin", "Tony La Russa", "Connie Mack"],
+	correct: 0},
+
+	{question: "The Oakland Athletics have won the World Series the same amount of times as the Giants, Angels, and Rangers combined.",
+	answers: ["False", "True"],
+	correct: 1},
 ];
 
 /*GLOBAL VARIABLES*/
@@ -67,16 +127,16 @@ function removeAnswers() {
 function quizEnd() {
 		$('.question').hide(1000);
 		$('.answerform').hide(1000);
-		$('#current-numbers').hide(1000);
+		$('#current-numbers').hide(1500);
 		$('#feedback').text("You got " 				
 			+ numberCorrect 
 			+ " out of " + questions.length + " correct or");
-		$('#percent-display').fadeIn(1500).text((numberCorrect/questions.length) * 100 + '%');
+		$('#percent-display').fadeIn(1500).text(Math.round((numberCorrect/questions.length) * 100) + '%');
 }
 
 /*HELPER FUNCTION - DISPLAYS NUMBER CORRECT and TOTAL QUESTIONS*/
 function currentNumbers(){
-	$('#current-numbers').text("#" + questionNum + "/" + questions.length +
+	$('#current-numbers').text("#" + (questionNum + 1) + "/" + questions.length +
 		" | Correct " + numberCorrect + "/" + questionNum);
 };
 		
@@ -109,24 +169,3 @@ $('#submitbutton').click(function() {
 })
 
 });
-
-
-/*THIGNS TO ADD
-More questions (100)
-Option to choose quiz length (10, 20, 50, 75, 100 questions)
-Restart button
-Make scalable for mobile
-Score as percentage at the end
-Display number of questions remaining and current score > done but ugly make helper function
-Make fade/animate transitions between questions
-Sticky footer
-*/
-
-
-
-
-
-
-
-
-
